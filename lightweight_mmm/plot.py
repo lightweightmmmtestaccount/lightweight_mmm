@@ -35,7 +35,7 @@ from lightweight_mmm import utils
 
 plt.style.use("default")
 
-_PALETTE = sns.color_palette(n_colors=100)
+_PALETTE = sns.color_palette(n_colors=200)
 
 
 @functools.partial(jax.jit, static_argnames=("media_mix_model"))
@@ -764,7 +764,9 @@ def plot_bars_media_metrics(
       fmt="none",
       c="black")
   ax.set_xticks(range(len(channel_names)))
-  ax.set_xticklabels(channel_names, rotation=45)
+  ax.set_xticklabels(channel_names, rotation=90)
+  ax.tick_params(axis="both", which="major", labelsize=5)
+  ax.tick_params(axis="both", which="minor", labelsize=4)
   fig.suptitle(
       f"Estimated media channel {metric_name}. \n Error bars show "
       f"{np.round(lower_quantile, 2)} - {np.round(upper_quantile, 2)} "
@@ -1270,4 +1272,4 @@ def plot_prior_and_posterior(
            i_ax=i_ax,
            **kwargs_for_helper_function)
 
-  return fig
+  return fig, contribution_df_for_plot

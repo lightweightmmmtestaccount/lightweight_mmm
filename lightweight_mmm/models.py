@@ -97,7 +97,7 @@ def _get_default_priors() -> Mapping[str, Prior]:
   # Since JAX cannot be called before absl.app.run in tests we get default
   # priors from a function.
   return immutabledict.immutabledict({
-      _INTERCEPT: dist.HalfNormal(scale=2.),
+      _INTERCEPT: dist.HalfNormal(scale=10.),
       _COEF_TREND: dist.Normal(loc=0., scale=1.),
       _EXPO_TREND: dist.Uniform(low=0.5, high=1.5),
       _SIGMA: dist.Gamma(concentration=1., rate=1.),
