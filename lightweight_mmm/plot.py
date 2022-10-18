@@ -948,7 +948,7 @@ def plot_media_baseline_contribution_area_plot(
   for tick in ax.get_xticklabels():
     tick.set_rotation(45)
   plt.close()
-  return fig, contribution_df_for_plot
+  return fig
 
 
 def _make_prior_and_posterior_subplot_for_one_feature(
